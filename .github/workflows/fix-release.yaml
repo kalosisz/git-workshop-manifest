@@ -1,0 +1,27 @@
+on:
+  push:
+    branches:
+      - fix-release-*
+
+name: Release fix please
+
+permissions:
+  contents: write
+  pull-requests: write
+  packages: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: GoogleCloudPlatform/release-please-action@v2
+        id: release
+        with:
+          release-type: python
+          package-name: workshopper
+          default-branch: ${{ steps.extract_branch.outputs.branch }}
+          token: ${{ secrets.GITHUB_TOKEN }}
