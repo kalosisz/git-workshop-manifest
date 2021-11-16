@@ -1,0 +1,10 @@
+{
+  "bootstrap-sha": "e2f551ab59bfcc7f52589dec681ad4bd7aaeacd0",
+  "release-type": "python",
+  "draft": true,
+  "packages": {
+    ".": {
+      "package-name": "workshopper"
+    }
+  }
+}

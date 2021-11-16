@@ -17,6 +17,5 @@ jobs:
       - uses: GoogleCloudPlatform/release-please-action@v2
         id: release
         with:
-          release-type: python
-          package-name: workshopper
+          command: manifest
           token: ${{ secrets.GITHUB_TOKEN }}
